@@ -1,3 +1,8 @@
+¡Claro! Aquí tienes el código completo y corregido. He incluido el enlace directo de WhatsApp que pediste y el mapa configurado para que marque Grúas Transtar en Río Segundo con el punto rojo.
+
+Copia todo esto y pégalo en tu archivo index.html en GitHub:
+
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +25,6 @@
             line-height: 1.6;
         }
 
-        /* Header */
         header {
             background: var(--blanco);
             padding: 1rem 5%;
@@ -47,7 +51,6 @@
             font-weight: 600;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('1.webp');
             background-size: cover;
@@ -78,7 +81,6 @@
 
         .btn-cta:hover { transform: scale(1.05); background: #c12e3a; }
 
-        /* Nosotros */
         .nosotros { padding: 80px 10%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
         .nosotros-texto { flex: 1; min-width: 300px; }
         .nosotros-texto h2 { color: var(--rojo); margin-bottom: 10px; }
@@ -91,7 +93,6 @@
         .nosotros-fotos { flex: 1; min-width: 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .nosotros-fotos img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        /* Servicios */
         .servicios { padding: 80px 10% ; text-align: center; background: var(--gris-claro); }
         .grid-servicios {
             display: grid;
@@ -110,14 +111,12 @@
         .card:hover { transform: translateY(-10px); }
         .card i { font-size: 3rem; color: var(--rojo); margin-bottom: 15px; }
 
-        /* Contacto */
         .contacto { padding: 80px 10%; display: flex; flex-wrap: wrap; gap: 50px; }
         .info-contacto { flex: 1; min-width: 300px; }
         .info-contacto h2 { color: var(--rojo); }
-        .info-contacto a { color: var(--oscuro); text-decoration: none; }
+        .info-contacto a { color: var(--oscuro); text-decoration: none; font-weight: bold; }
         .info-contacto a:hover { color: var(--rojo); }
 
-        /* Botón WhatsApp Flotante */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -135,7 +134,9 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         footer { background: var(--oscuro); color: white; text-align: center; padding: 20px; }
 
@@ -168,18 +169,17 @@
         <div class="nosotros-texto">
             <h2>Hacemos tu vida más fácil</h2>
             <h3>Ubicación estratégica en Alajuela Aeropuerto (Río Segundo).</h3>
-            <p>Aunque nuestra base principal es Alajuela, brindamos cobertura total en <strong>Heredia, San José</strong> y cualquier punto de Costa Rica donde nos necesite. Estamos disponibles las 24 horas del día, los 365 días del año.</p>
-            <p>Nos caracterizamos por nuestra confiabilidad, seguridad y atención inmediata. Su tranquilidad es nuestra prioridad.</p>
+            <p>Brindamos cobertura total en <strong>Heredia, San José, Alajuela</strong> y cualquier punto de Costa Rica. Estamos disponibles las 24 horas del día.</p>
             
             <ul class="lista-check">
                 <li><i class="fas fa-check-circle"></i> Traslados en todo el país</li>
-                <li><i class="fas fa-check-circle"></i> Factura digital y seguro de carga del INS</li>
-                <li><i class="fas fa-check-circle"></i> Preferencia y rapidez en el Gran Área Metropolitana</li>
+                <li><i class="fas fa-check-circle"></i> Factura digital y seguro de carga</li>
+                <li><i class="fas fa-check-circle"></i> Atención rápida 24/7</li>
             </ul>
         </div>
         <div class="nosotros-fotos">
-            <img src="2026-03-05.jpg" alt="Grúa Transtar Vista 1">
-            <img src="2026-03-05.webp" alt="Grúa Transtar Vista 2">
+            <img src="2026-03-05.jpg" alt="Grúa Transtar Frontal">
+            <img src="2026-03-05.webp" alt="Servicio de Grúa">
         </div>
     </section>
 
@@ -189,17 +189,17 @@
             <div class="card">
                 <i class="fas fa-truck-pickup"></i>
                 <h3>Grúa de Plataforma</h3>
-                <p>Transporte seguro para vehículos livianos y pesados con equipo moderno.</p>
+                <p>Transporte seguro para vehículos livianos y pesados.</p>
             </div>
             <div class="card">
                 <i class="fas fa-tools"></i>
                 <h3>Asistencia Vial</h3>
-                <p>Rescate en carretera, cambio de llantas y paso de corriente en cualquier lugar.</p>
+                <p>Rescate en carretera, cambio de llantas y paso de corriente.</p>
             </div>
             <div class="card">
                 <i class="fas fa-clock"></i>
                 <h3>Servicio 24/7</h3>
-                <p>No importa la hora ni el día, estamos listos para atender su emergencia.</p>
+                <p>Listos para atender su emergencia en cualquier momento.</p>
             </div>
         </div>
     </section>
@@ -213,7 +213,8 @@
             <p><strong>Horario:</strong> Siempre Abierto (24/7/365)</p>
         </div>
         <div style="flex: 1; min-width: 300px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.569500000000!2d-84.1952339!3d10.0003886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f90ef989cb37%3A0xfdec02673323309e!2sGruas%20Transtar!5e0!3m2!1ses!2scr!4v1711462000000!5m2!1ses!2scr" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.584742784523!2d-84.1843187!3d10.0099444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f90ef989cb37%3A0xfdec02673323309e!2sGruas%20Transtar!5e0!3m2!1ses!2scr!4v1711467600000!5m2!1ses!2scr" 
+                    width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
