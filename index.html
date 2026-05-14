@@ -4,10 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grúas Transtar | Asistencia Vial 24/7 Costa Rica</title>
-
+ 
     <link rel="icon" href="Transtar_logo_estrella.jpg" type="image/jpeg">
     <link rel="apple-touch-icon" href="Transtar_logo_estrella.jpg">
-    
+    <!-- ═══════════════════════════════════════════
+         OPEN GRAPH TAGS
+         (cómo se ve el link al compartirlo en WhatsApp/Facebook)
+    ════════════════════════════════════════════ -->
+    <meta property="og:title" content="Grúas Transtar | Asistencia Vial 24/7 Costa Rica">
+    <meta property="og:description" content="Servicio de grúa plataforma en todo Costa Rica. Cobertura en Heredia, San José y Alajuela. Disponibles 24/7/365. ¡Llámenos ahora!">
+    <meta property="og:image" content="https://gruas-transtarcr.com/2.jpeg">
+    <meta property="og:url" content="https://gruas-transtarcr.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CR">
+    <meta name="description" content="Servicio de grúa plataforma en todo Costa Rica. Cobertura en Heredia, San José y Alajuela. Disponibles 24/7/365. ¡Llámenos ahora!">
+ 
+    <!-- ═══════════════════════════════════════════
+         JSON-LD — LocalBusiness (SEO local para Google)
+         No usa base de datos, es metadata estática que
+         Google lee al indexar la página.
+    ════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Grúas Transtar",
+      "url": "https://gruas-transtarcr.com/",
+      "telephone": "+50672004728",
+      "image": "https://gruas-transtarcr.com/2.jpeg",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Río Segundo",
+        "addressLocality": "Alajuela",
+        "addressRegion": "Alajuela",
+        "addressCountry": "CR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.0099444,
+        "longitude": -84.1843187
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Heredia" },
+        { "@type": "City", "name": "San José" },
+        { "@type": "City", "name": "Alajuela" },
+        { "@type": "Country", "name": "Costa Rica" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/gruastranstar"
+      ]
+    }
+    </script>
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -16,14 +66,15 @@
             --gris-claro: #f1faee;
             --blanco: #ffffff;
         }
-
+ 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             color: #333;
             line-height: 1.6;
         }
-
+ 
+        /* Header */
         header {
             background: var(--blanco);
             padding: 1rem 5%;
@@ -35,46 +86,39 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
+ 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--rojo);
             text-transform: uppercase;
         }
-
+ 
         nav a {
             margin-left: 20px;
             text-decoration: none;
             color: var(--oscuro);
             font-weight: 600;
         }
-
+ 
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('1.jpg');   /*Imagen*/
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('1.jpg');
             background-size: cover;
-            background-repeat: no-repeat;
             background-position: center bottom;
-           
-            height: auto;                  /*Tamaño*/
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 80px 0 220px;         /*Ubicacion letras*/
+            padding: 0 20px;
         }
-        .hero h1 { 
-            font-size: 4.5rem;
-            margin-bottom: 5px; 
-            letter-spacing: 2px; 
-        }                                             /*Titulo*/
-        .hero p { 
-            font-size: 1.2rem; 
-            margin-bottom: 40px; 
-            opacity: 0.9; 
-        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; }
+ 
         .btn-cta {
             background: var(--rojo);
             color: white;
@@ -85,9 +129,10 @@
             font-weight: bold;
             transition: 0.3s;
         }
-
+ 
         .btn-cta:hover { transform: scale(1.05); background: #c12e3a; }
-
+ 
+        /* Nosotros */
         .nosotros { padding: 80px 10%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
         .nosotros-texto { flex: 1; min-width: 300px; }
         .nosotros-texto h2 { color: var(--rojo); margin-bottom: 10px; }
@@ -96,18 +141,19 @@
         .lista-check { list-style: none; padding: 0; margin-top: 20px; }
         .lista-check li { margin-bottom: 10px; font-weight: bold; display: flex; align-items: center; }
         .lista-check li i { color: var(--rojo); margin-right: 10px; }
-
+ 
         .nosotros-fotos { flex: 1; min-width: 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .nosotros-fotos img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
-        .servicios { padding: 80px 10% ; text-align: center; background: var(--gris-claro); }
+ 
+        /* Servicios */
+        .servicios { padding: 80px 10%; text-align: center; background: var(--gris-claro); }
         .grid-servicios {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-
+ 
         .card {
             background: white;
             padding: 30px;
@@ -117,13 +163,101 @@
         }
         .card:hover { transform: translateY(-10px); }
         .card i { font-size: 3rem; color: var(--rojo); margin-bottom: 15px; }
-
+ 
+        /* Contacto */
         .contacto { padding: 80px 10%; display: flex; flex-wrap: wrap; gap: 50px; }
         .info-contacto { flex: 1; min-width: 300px; }
         .info-contacto h2 { color: var(--rojo); }
-        .info-contacto a { color: var(--oscuro); text-decoration: none; font-weight: bold; }
+        .info-contacto a { color: var(--oscuro); text-decoration: none; }
         .info-contacto a:hover { color: var(--rojo); }
-
+ 
+        /* ═══════════════════════════════════
+           SECCIÓN "¿POR QUÉ NOSOTROS?"
+        ═══════════════════════════════════ */
+        .por-que {
+            padding: 80px 10%;
+            text-align: center;
+            background: var(--oscuro);
+            color: white;
+        }
+ 
+        .por-que h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+ 
+        .por-que .subtitulo {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+ 
+        .grid-por-que {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+ 
+        .razon {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 30px 20px;
+            transition: 0.3s;
+        }
+ 
+        .razon:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
+        }
+ 
+        .razon i {
+            font-size: 2.5rem;
+            color: var(--rojo);
+            margin-bottom: 15px;
+        }
+ 
+        .razon h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+ 
+        .razon p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+        }
+ 
+        .stat-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+ 
+        .stat {
+            text-align: center;
+        }
+ 
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--rojo);
+            display: block;
+        }
+ 
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+ 
+        /* Botón WhatsApp Flotante */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -141,12 +275,12 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: 0.3s;
+            cursor: pointer;
+            border: none;
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
+ 
         footer { background: var(--oscuro); color: white; text-align: center; padding: 20px; }
-
+ 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             nav { display: none; }
@@ -155,7 +289,7 @@
     </style>
 </head>
 <body>
-
+ 
     <header>
         <div class="logo">GRÚAS TRANSTAR</div>
         <nav>
@@ -165,57 +299,56 @@
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
-
+ 
     <section id="inicio" class="hero">
         <h1>ASISTENCIA VIAL 24/7</h1>
         <p>Servicio de Grúa Plataforma en todo el territorio nacional</p>
-        <a href="https://wa.me/50672004728" class="btn-cta" target="_blank"><i class="fab fa-whatsapp"></i> CHATEAR POR WHATSAPP</a>
+        <!-- Botón hero: pide ubicación y abre WhatsApp con mensaje -->
+        <button class="btn-cta" onclick="abrirWhatsApp()">
+            <i class="fab fa-whatsapp"></i> CHATEAR POR WHATSAPP
+        </button>
     </section>
-
+ 
     <section id="nosotros" class="nosotros">
         <div class="nosotros-texto">
             <h2>Hacemos tu vida más fácil</h2>
             <h3>Ubicación estratégica en Alajuela Aeropuerto (Río Segundo).</h3>
-            <p>Brindamos cobertura total en <strong>Heredia, San José, Alajuela</strong> y cualquier punto de Costa Rica. Estamos disponibles las 24 horas del día.</p>
+            <p>Aunque nuestra base principal es Alajuela, brindamos cobertura total en <strong>Heredia, San José</strong> y cualquier punto de Costa Rica donde nos necesite. Estamos disponibles las 24 horas del día, los 365 días del año.</p>
+            <p>Nos caracterizamos por nuestra confiabilidad, seguridad y atención inmediata. Su tranquilidad es nuestra prioridad.</p>
             
             <ul class="lista-check">
                 <li><i class="fas fa-check-circle"></i> Traslados en todo el país</li>
-                <li><i class="fas fa-check-circle"></i> Factura digital y seguro de carga</li>
-                <li><i class="fas fa-check-circle"></i> Atención rápida 24/7</li>
+                <li><i class="fas fa-check-circle"></i> Factura digital y seguro de carga del INS</li>
+                <li><i class="fas fa-check-circle"></i> Preferencia y rapidez en el Gran Área Metropolitana</li>
             </ul>
         </div>
         <div class="nosotros-fotos">
-            <img src="2.jpeg" alt="Grúa Transtar Frontal">
-            <img src="Front-grua.jpeg" alt="Servicio de Grúa">
+            <img src="Front-grua.jpeg" alt="Grúa Transtar Vista 1">
+            <img src="2026-03-05.webp" alt="Grúa Transtar Vista 2">
         </div>
     </section>
-
+ 
     <section id="servicios" class="servicios">
         <h2>Nuestros Servicios</h2>
         <div class="grid-servicios">
             <div class="card">
                 <i class="fas fa-truck-pickup"></i>
                 <h3>Grúa de Plataforma</h3>
-                <p>Transporte seguro para vehículos livianos y pesados.</p>
+                <p>Transporte seguro para vehículos livianos y pesados con equipo moderno.</p>
             </div>
             <div class="card">
                 <i class="fas fa-tools"></i>
                 <h3>Asistencia Vial</h3>
-                <p>Rescate en carretera, cambio de llantas y paso de corriente.</p>
+                <p>Rescate en carretera, cambio de llantas y paso de corriente en cualquier lugar.</p>
             </div>
             <div class="card">
                 <i class="fas fa-clock"></i>
                 <h3>Servicio 24/7</h3>
-                <p>Listos para atender su emergencia en cualquier momento.</p>
+                <p>No importa la hora ni el día, estamos listos para atender su emergencia.</p>
             </div>
-            <div class="card">
-            <i class="fas fa-handshake"></i>                                     
-            <h3>Rescates Viales</h3>
-            <p>Recuperación de vehículos fuera de la vía, rescate en colisiones y maniobras de extracción con equipo de alta capacidad.</p>
-        </div>
         </div>
     </section>
-
+ 
     <section id="contacto" class="contacto">
         <div class="info-contacto">
             <h2>Información de Contacto</h2>
@@ -225,18 +358,120 @@
             <p><strong>Horario:</strong> Siempre Abierto (24/7/365)</p>
         </div>
         <div style="flex: 1; min-width: 300px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.584742784523!2d-84.1843187!3d10.0099444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f90ef989cb37%3A0xfdec02673323309e!2sGruas%20Transtar!5e0!3m2!1ses!2scr!4v1711467600000!5m2!1ses!2scr" 
-                    width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.569500000000!2d-84.1952339!3d10.0003886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f90ef989cb37%3A0xfdec02673323309e!2sGruas%20Transtar!5e0!3m2!1ses!2scr!4v1711462000000!5m2!1ses!2scr" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
-
-    <a href="https://wa.me/50672004728" class="whatsapp-float" target="_blank">
+ 
+    <!-- ═══════════════════════════════════
+         SECCIÓN: ¿POR QUÉ NOSOTROS?
+    ═══════════════════════════════════ -->
+    <section class="por-que">
+        <h2>¿Por qué elegirnos?</h2>
+        <p class="subtitulo">Más de una razón para confiar en Grúas Transtar</p>
+ 
+        <div class="grid-por-que">
+            <div class="razon">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Cobertura Nacional</h3>
+                <p>Operamos en todo Costa Rica, con especial rapidez en la GAM: Heredia, San José y Alajuela.</p>
+            </div>
+            <div class="razon">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Seguro de Carga INS</h3>
+                <p>Su vehículo viaja protegido. Contamos con seguro de carga del INS y factura digital en cada servicio.</p>
+            </div>
+            <div class="razon">
+                <i class="fas fa-bolt"></i>
+                <h3>Respuesta Inmediata</h3>
+                <p>Atendemos emergencias las 24 horas, los 365 días del año. Siempre disponibles cuando más nos necesita.</p>
+            </div>
+            <div class="razon">
+                <i class="fas fa-handshake"></i>
+                <h3>Trato de Confianza</h3>
+                <p>Operadores capacitados, trato profesional y honesto. Su tranquilidad es nuestra prioridad.</p>
+            </div>
+        </div>
+ 
+        <div class="stat-row">
+            <div class="stat">
+                <span class="stat-num">24/7</span>
+                <span class="stat-label">Disponibilidad</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">365</span>
+                <span class="stat-label">Días al año</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">Nacional</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">INS</span>
+                <span class="stat-label">Seguro de carga</span>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Botón flotante WhatsApp -->
+    <button class="whatsapp-float" onclick="abrirWhatsApp()" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
-    </a>
-
+    </button>
+ 
     <footer>
         <p>© 2026 Grúas Transtar - Seguridad y Confianza Vial</p>
     </footer>
+ 
+    <!-- ═══════════════════════════════════════════════════════
+         LÓGICA WHATSAPP CON UBICACIÓN
+         
+         Flujo:
+         1. Usuario toca el botón
+         2. Se pide permiso de ubicación al navegador
+         3a. Si acepta → mensaje incluye link de Google Maps con sus coordenadas
+         3b. Si niega o hay error → mensaje sin ubicación, igual abre WhatsApp
+    ════════════════════════════════════════════════════════ -->
+    <script>
+        const NUMERO_WHATSAPP = '50672004728';
+ 
+        function abrirWhatsApp() {
+            // Verificar si el navegador soporta geolocalización
+            if (!navigator.geolocation) {
+                // Sin soporte → abrir WhatsApp sin ubicación
+                enviarMensaje(null);
+                return;
+            }
+ 
+            navigator.geolocation.getCurrentPosition(
+                function(pos) {
+                    // Éxito: tenemos coordenadas
+                    const lat = pos.coords.latitude.toFixed(6);
+                    const lng = pos.coords.longitude.toFixed(6);
+                    const linkMapa = 'https://maps.google.com/?q=' + lat + ',' + lng;
+                    enviarMensaje(linkMapa);
+                },
+                function(error) {
+                    // Error o permiso denegado → abrir sin ubicación
+                    enviarMensaje(null);
+                },
+                {
+                    timeout: 8000,       // Esperar máximo 8 segundos
+                    maximumAge: 60000    // Aceptar ubicación cacheada de hasta 1 minuto
+                }
+            );
+        }
+ 
+        function enviarMensaje(linkUbicacion) {
+            let mensaje;
+ 
+            if (linkUbicacion) {
+                mensaje = 'Necesito una grúa urgente, mi ubicación es esta: ' + linkUbicacion;
+            } else {
+                mensaje = 'Necesito una grúa urgente, ¿pueden ayudarme?';
+            }
+ 
+            const url = 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(mensaje);
+            window.open(url, '_blank');
+        }
     <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
