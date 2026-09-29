@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grúas Transtar | Asistencia Vial 24/7 Costa Rica</title>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18441377658"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18441377658');
-</script>
  
     <link rel="icon" href="Transtar_logo_estrella.jpg" type="image/jpeg">
     <link rel="apple-touch-icon" href="Transtar_logo_estrella.jpg">
@@ -107,6 +97,32 @@
             text-decoration: none;
             color: var(--oscuro);
             font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding: 4px 0;
+            transition: color .25s ease, transform .25s ease;
+        }
+        /* Línea que crece desde la izquierda al pasar el mouse o estar en esa sección */
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--rojo);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease;
+        }
+        nav a:hover, nav a.activo { color: var(--rojo); }
+        nav a:hover { transform: translateY(-2px); }
+        nav a:hover::after, nav a.activo::after { transform: scaleX(1); }
+        nav a:focus-visible { outline: 3px solid #f5c518; outline-offset: 4px; }
+        @media (prefers-reduced-motion: reduce) {
+            nav a, nav a::after { transition: none; }
+            nav a:hover { transform: none; }
         }
  
         /* Botón llamar en header */
@@ -261,7 +277,184 @@
             border: none;
         }
  
-        footer { background: var(--oscuro); color: white; text-align: center; padding: 20px; }
+                /* Menú radial de contacto */
+        /* Botón "Contactar" + panel desplegable en el header */
+        .btn-contactar { background: var(--oscuro); color: white; border: none; cursor: pointer; padding: 8px 18px; border-radius: 5px; font: inherit; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 7px; white-space: nowrap; transition: 0.3s; }
+        .btn-contactar:hover { background: #142640; transform: scale(1.04); }
+        .btn-contactar:focus-visible { outline: 3px solid #f5c518; outline-offset: 3px; }
+        .panel-contacto { position: absolute; top: 100%; right: 5%; width: 400px; max-width: calc(100vw - 24px); box-sizing: border-box; padding: 25px 20px 45px; background: white; border-radius: 0 0 16px 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s; }
+        .panel-contacto.abierto { opacity: 1; visibility: visible; transform: none; transition: opacity .25s ease, transform .25s ease, visibility 0s; }
+        .panel-contacto .redial { margin: 0 auto; }
+        @media (max-width: 768px) {
+            .btn-contactar span { display: none; }
+            .btn-contactar { padding: 8px 12px; }
+            .panel-contacto { right: 12px; left: 12px; width: auto; }
+        }
+    
+    .redial {
+      --ink: var(--oscuro, #1d3557);
+      --red: var(--rojo, #e63946);
+      position: relative;
+      width: min(100%, 360px);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      font-size: 14px;
+    }
+
+    /* Líneas que salen del centro */
+    .redial__lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+    .redial__lines path {
+      fill: none;
+      stroke: var(--ink);
+      stroke-opacity: .2;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset .5s ease;
+    }
+    .redial.is-open .redial__lines path { stroke-dashoffset: 0; }
+
+    /* Botón central */
+    .redial__toggle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 5;
+      width: 72px;
+      height: 72px;
+      transform: translate(-50%, -50%);
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-size: 1.6em;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .redial__toggle:hover { transform: translate(-50%, -50%) scale(1.05); }
+    .redial__toggle:active { transform: translate(-50%, -50%) scale(.96); box-shadow: 2px 2px 0 var(--ink); }
+    .redial__toggle i { transition: transform .35s ease; }
+    .redial.is-open .redial__toggle i { transform: rotate(45deg); }
+    .redial__toggle:focus-visible,
+    .redial a.redial__item:focus-visible { outline: 3px solid #f5c518; outline-offset: 3px; }
+
+    .redial__hint {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 54px);
+      transform: translateX(-50%);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--ink);
+      transition: opacity .2s ease;
+    }
+    .redial.is-open .redial__hint { opacity: 0; }
+
+    /* Botones de las opciones (cerrados: ocultos y sin foco) */
+    .redial a.redial__item {
+      --d: 0s;
+      --acento: var(--ink);
+      --on: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 4;
+      box-sizing: border-box;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-size: 1.5em;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 var(--ink);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(.3);
+      transition: opacity .25s ease, top .4s ease, left .4s ease, transform .4s ease, visibility 0s linear .4s;
+    }
+    .redial .redial__label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--ink);
+    }
+
+    .redial a.item-1 { --acento: var(--red); }
+    .redial a.item-2 { --acento: #178a45; --d: .06s; }
+    .redial a.item-3 { --d: .12s; }
+    .redial a.item-4 { --acento: #3b5998; --d: .18s; }
+    .redial a.item-5 { --acento: #f5c518; --on: var(--ink); --d: .24s; }
+
+    /* Abiertos: cada opción va a su lugar (5 puntos a 72° alrededor del centro) */
+    .redial.is-open a.redial__item {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+      transition:
+        opacity .3s ease var(--d),
+        top .5s cubic-bezier(.34, 1.4, .64, 1) var(--d),
+        left .5s cubic-bezier(.34, 1.4, .64, 1) var(--d),
+        transform .5s cubic-bezier(.34, 1.4, .64, 1) var(--d),
+        visibility 0s;
+    }
+    .redial.is-open .item-1 { top: 15%;    left: 50%; }
+    .redial.is-open .item-2 { top: 39.2%;  left: 83.3%; }
+    .redial.is-open .item-3 { top: 78.3%;  left: 70.6%; }
+    .redial.is-open .item-4 { top: 78.3%;  left: 29.4%; }
+    .redial.is-open .item-5 { top: 39.2%;  left: 16.7%; }
+
+    .redial.is-open a.redial__item:hover,
+    .redial.is-open a.redial__item:focus-visible {
+      background: var(--acento);
+      color: var(--on);
+      transform: translate(-50%, -50%) scale(1.08);
+      transition-delay: 0s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .redial *, .redial a.redial__item { transition: none !important; }
+    }
+  
+        /* Footer */
+        footer { background: #14253f; color: rgba(255,255,255,0.85); border-top: 4px solid var(--rojo); padding: 50px 10% 25px; }
+        .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 40px; }
+        .footer-logo { font-size: 1.3rem; font-weight: bold; color: white; margin-bottom: 10px; }
+        .footer-col p { margin: 0 0 15px; font-size: 0.95rem; line-height: 1.5; }
+        .footer-col h4 { color: white; font-size: 1rem; margin: 0 0 15px; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; margin-bottom: 10px; font-size: 0.95rem; }
+        .footer-col a:hover { color: var(--rojo); }
+        .footer-col a i, .footer-col .footer-dato i { color: var(--rojo); width: 20px; }
+        .footer-col .footer-dato { margin: 0 0 10px; }
+        .footer-col a.footer-fb { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); margin: 0; }
+        .footer-col a.footer-fb i { color: white; width: auto; }
+        .footer-col a.footer-fb:hover { background: var(--rojo); color: white; }
+        .footer-cobertura { margin-top: 35px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.15); text-align: center; font-size: 0.95rem; }
+        .footer-cobertura i { color: var(--rojo); margin-right: 8px; }
+        .footer-bottom { margin-top: 20px; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+        .footer-bottom p { margin: 12px 0 0; }
+        .volver-arriba { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--rojo); color: white; text-decoration: none; }
+        .volver-arriba:hover { background: #c12e3a; }
+        .volver-arriba:focus-visible, .footer-col a:focus-visible { outline: 3px solid #f5c518; outline-offset: 3px; }
+        @media (max-width: 768px) {
+            footer { padding: 40px 8% 90px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .footer-col a i, .footer-col .footer-dato i { width: auto; margin-right: 8px; }
+        }
  
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -285,10 +478,49 @@
                 <a href="#contacto">Contacto</a>
             </nav>
             <!-- Botón de llamada directo, siempre visible en el header -->
+            <button type="button" class="btn-contactar" id="btn-contactar" aria-expanded="false" aria-controls="panel-contacto">
+                <i class="fas fa-headset"></i>
+                <span>Contactar</span>
+            </button>
             <a href="tel:+50672004728" class="btn-llamar">
                 <i class="fas fa-phone"></i>
                 <span>7200 4728</span>
             </a>
+        </div>
+        <div class="panel-contacto" id="panel-contacto">
+            <div class="redial" id="redial">
+  <svg class="redial__lines" viewBox="0 0 400 400" aria-hidden="true">
+    <path pathLength="1" d="M200 200 L200 60"/>
+    <path pathLength="1" d="M200 200 L333 157"/>
+    <path pathLength="1" d="M200 200 L282 313"/>
+    <path pathLength="1" d="M200 200 L118 313"/>
+    <path pathLength="1" d="M200 200 L67 157"/>
+  </svg>
+
+  <button type="button" class="redial__toggle" aria-expanded="false" aria-controls="redial-menu" aria-label="Abrir menú de contacto">
+    <i class="fas fa-plus" aria-hidden="true"></i>
+  </button>
+  <span class="redial__hint">Toca para contactarnos</span>
+
+  <div id="redial-menu" role="group" aria-label="Formas de contacto">
+    <a class="redial__item item-1" href="tel:+50672004728">
+      <i class="fas fa-phone" aria-hidden="true"></i><span class="redial__label">Llamar</span>
+    </a>
+    <a class="redial__item item-2" href="https://wa.me/50672004728" target="_blank" rel="noopener"
+       onclick="if (typeof abrirWhatsApp === 'function') { abrirWhatsApp(); return false; }">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i><span class="redial__label">WhatsApp</span>
+    </a>
+    <a class="redial__item item-3" href="https://www.google.com/maps/search/?api=1&amp;query=Gruas+Transtar+Río+Segundo" target="_blank" rel="noopener">
+      <i class="fas fa-location-dot" aria-hidden="true"></i><span class="redial__label">Ubicación</span>
+    </a>
+    <a class="redial__item item-4" href="https://www.facebook.com/gruastranstar" target="_blank" rel="noopener">
+      <i class="fab fa-facebook-f" aria-hidden="true"></i><span class="redial__label">Facebook</span>
+    </a>
+    <a class="redial__item item-5" href="https://g.page/r/CZ4wIzNnAuz9EAE/review" target="_blank" rel="noopener">
+      <i class="fas fa-star" aria-hidden="true"></i><span class="redial__label">Valóranos</span>
+    </a>
+  </div>
+</div>
         </div>
     </header>
  
@@ -352,7 +584,7 @@
             <p><i class="fas fa-phone"></i> Celular: <a href="tel:+50672004728">7200 4728</a></p>
             <p><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/gruastranstar" target="_blank">Visítanos en Facebook</a></p>
             <p><strong>Horario:</strong> Siempre Abierto (24/7/365)</p>
-        </div>
+            </div>
         <div style="flex: 1; min-width: 300px;">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.569500000000!2d-84.1952339!3d10.0003886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f90ef989cb37%3A0xfdec02673323309e!2sGruas%20Transtar!5e0!3m2!1ses!2scr!4v1711462000000!5m2!1ses!2scr" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
@@ -408,7 +640,31 @@
     </button>
  
     <footer>
-        <p>© 2026 Grúas Transtar - Seguridad y Confianza Vial</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">GRÚAS TRANSTAR</div>
+                <p>Seguridad y Confianza Vial. Grúa plataforma y asistencia vial las 24 horas, en todo Costa Rica.</p>
+                <a class="footer-fb" href="https://www.facebook.com/gruastranstar" target="_blank" rel="noopener" aria-label="Facebook de Grúas Transtar"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contáctenos</h4>
+                <a href="tel:+50672004728"><i class="fas fa-phone"></i>7200 4728</a>
+                <p class="footer-dato"><i class="fas fa-map-marker-alt"></i>Alajuela Aeropuerto, Río Segundo</p>
+                <p class="footer-dato"><i class="fas fa-clock"></i>Abierto 24/7/365</p>
+            </div>
+        </div>
+        <div class="footer-cobertura"><i class="fas fa-map-marked-alt"></i>Cobertura en Heredia, San José, Alajuela y todo Costa Rica</div>
+        <div class="footer-bottom">
+            <a href="#inicio" class="volver-arriba" aria-label="Volver arriba"><i class="fas fa-chevron-up"></i></a>
+            <p>© 2026 Grúas Transtar - Seguridad y Confianza Vial</p>
+        </div>
     </footer>
  
     <script>
@@ -419,34 +675,97 @@
                 enviarMensaje(null);
                 return;
             }
-            navigator.geolocation.getCurrentPosition(
+            var mejor = null, terminado = false, watchId, timer;
+
+            function terminar() {
+                if (terminado) return;
+                terminado = true;
+                clearTimeout(timer);
+                navigator.geolocation.clearWatch(watchId);
+                if (!mejor) { enviarMensaje(null); return; }
+                var lat = mejor.coords.latitude.toFixed(6);
+                var lng = mejor.coords.longitude.toFixed(6);
+                enviarMensaje('https://maps.google.com/?q=' + lat + ',' + lng, mejor.coords.accuracy);
+            }
+
+            // Espera hasta 7 s a que el GPS mejore y se queda con la lectura más precisa
+            timer = setTimeout(terminar, 7000);
+            watchId = navigator.geolocation.watchPosition(
                 function(pos) {
-                    const lat = pos.coords.latitude.toFixed(6);
-                    const lng = pos.coords.longitude.toFixed(6);
-                    const linkMapa = 'https://maps.google.com/?q=' + lat + ',' + lng;
-                    enviarMensaje(linkMapa);
+                    if (!mejor || pos.coords.accuracy < mejor.coords.accuracy) mejor = pos;
+                    if (pos.coords.accuracy <= 50) terminar();
                 },
-                function(error) {
-                    enviarMensaje(null);
-                },
-                {
-                    timeout: 8000,
-                    maximumAge: 60000
-                }
+                function() { terminar(); },
+                { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
             );
         }
- 
-        function enviarMensaje(linkUbicacion) {
+
+        function enviarMensaje(linkUbicacion, precision) {
             let mensaje;
-            if (linkUbicacion) {
+            if (linkUbicacion && precision > 500) {
+                mensaje = 'Necesito una grúa urgente. Mi ubicación aproximada es: ' + linkUbicacion + ';
+            } else if (linkUbicacion) {
                 mensaje = 'Necesito una grúa urgente, mi ubicación es esta: ' + linkUbicacion;
             } else {
                 mensaje = 'Necesito una grúa urgente, ¿pueden ayudarme?';
             }
             const url = 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(mensaje);
-            window.open(url, '_blank');
+            // Si el navegador bloquea la ventana nueva, abre WhatsApp en la misma pestaña
+            if (!window.open(url, '_blank')) { window.location.href = url; }
         }
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+<script>
+  (function () {
+    var menu = document.getElementById('redial');
+    var btn = menu.querySelector('.redial__toggle');
+
+    function set(abierto) {
+      menu.classList.toggle('is-open', abierto);
+      btn.setAttribute('aria-expanded', abierto);
+      btn.setAttribute('aria-label', abierto ? 'Cerrar menú de contacto' : 'Abrir menú de contacto');
+    }
+
+    btn.addEventListener('click', function () { set(!menu.classList.contains('is-open')); });
+    document.addEventListener('click', function (e) { if (!menu.contains(e.target)) set(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) { set(false); btn.focus(); }
+    });
+  })();
+</script>
+<script>
+(function () {
+  var links = document.querySelectorAll('nav a[href^="#"]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      links.forEach(function (a) { a.classList.toggle('activo', a.getAttribute('href') === '#' + en.target.id); });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  ['inicio','nosotros','servicios','contacto'].forEach(function (id) {
+    var el = document.getElementById(id); if (el) io.observe(el);
+  });
+})();
+</script>
+<script>
+        (function () {
+            var t = document.getElementById('btn-contactar');
+            var p = document.getElementById('panel-contacto');
+            var r = document.getElementById('redial');
+            var rt = r.querySelector('.redial__toggle');
+            function panel(abrir) {
+                p.classList.toggle('abierto', abrir);
+                t.setAttribute('aria-expanded', abrir);
+                if (abrir) { setTimeout(function () { if (!r.classList.contains('is-open')) rt.click(); }, 150); }
+                else if (r.classList.contains('is-open')) { rt.click(); }
+            }
+            t.addEventListener('click', function (e) { e.stopPropagation(); panel(!p.classList.contains('abierto')); });
+            document.addEventListener('click', function (e) { if (!p.contains(e.target)) panel(false); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && p.classList.contains('abierto')) { panel(false); t.focus(); }
+            });
+        })();
+    </script>
 </body>
 </html>
