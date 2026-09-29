@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Página no encontrada | Grúas Transtar</title>
+  <style>
+    :root {
+      --red: #e63946;
+      --asphalt: #2a2e35;
+      --line: #f5c518;
+      --wa: #178a45;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      background: var(--asphalt);
+      color: var(--white);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--white);
+    }
+    .brand {
+      font: 700 1.5rem Arial, Helvetica, sans-serif;
+      color: var(--red);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .call-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 34px;
+      border-radius: 6px;
+      background: var(--red);
+    }
+    .call-icon svg { width: 20px; height: 20px; fill: var(--white); }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .code {
+      font: 800 clamp(6rem, 32vw, 11rem)/1 Arial, Helvetica, sans-serif;
+      letter-spacing: -0.04em;
+    }
+    .road {
+      width: min(100%, 320px);
+      height: 6px;
+      margin: 10px 0 28px;
+      background: repeating-linear-gradient(90deg, var(--line) 0 28px, transparent 28px 56px);
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 8px; }
+    .hint { max-width: 32ch; line-height: 1.5; opacity: .85; }
+    .sos { width: min(100%, 360px); margin-top: 32px; }
+    .sos p { font-size: 1.1rem; margin-bottom: 14px; line-height: 1.4; }
+    .btn {
+      display: block;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .btn-call { background: var(--red); }
+    .btn-wa { background: var(--wa); }
+    .back {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--white);
+      text-underline-offset: 4px;
+    }
+    a:focus-visible { outline: 3px solid var(--line); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">Grúas Transtar</a>
+    <a class="call-icon" href="tel:+50672004728" aria-label="Llamar a Grúas Transtar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+  </header>
+
+  <main>
+    <p class="code" aria-hidden="true">404</p>
+    <div class="road" aria-hidden="true"></div>
+    <h1>No encontramos esa página</h1>
+    <p class="hint">El enlace puede estar mal escrito o la página ya no existe.
+    </p>
+
+    <div class="sos">
+      <p>¿Necesitas una grúa ahora? Atendemos las 24 horas, todo el país. ¡Dónde Estés!</p>
+      <a class="btn btn-call" href="tel:+50672004728">Llamar al 7200 4728</a>
+      <a class="btn btn-wa" href="https://wa.me/50672004728?text=Hola%2C%20necesito%20una%20gr%C3%BAa">Chatear por WhatsApp</a>
+      <a class="back" href="/">Volver al inicio</a>
+    </div>
+  </main>
+</body>
+</html>
